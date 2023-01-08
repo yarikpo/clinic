@@ -61,7 +61,7 @@ public class ClientController {
     }
 
     @PostMapping("/save")
-    public ModelAndView createClient(Client client) throws ParseException {
+    public ModelAndView saveClient(Client client) throws ParseException {
         service.createClient(client);
         return new ModelAndView("redirect:/clients");
     }

@@ -2,7 +2,6 @@ package ua.clamor1s.clinic.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -50,7 +49,6 @@ public class ClientDao {
     }
 
     public void createClient(Client client) throws ParseException {
-        KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update("insert into client (email, name, sex, birth_date, tel_num, address, invalidity_info, pension_certificate_number)" +
                 " values (? , ? , ? , ? , ? , ? , ? , ?);",
                 client.getEmail(),
@@ -62,7 +60,6 @@ public class ClientDao {
                 client.getInvalidityInfo(),
                 client.getPensionCertificateNumber()
         );
-//        client.setClientId(keyHolder.getKey().intValue());
     }
 
     private Client mapClient(ResultSet rs) throws SQLException {
