@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Doctor {
 
-    private int doctorId;
+    private Integer doctorId;
     private String seriesNumber;
     private String email;
     private String password;

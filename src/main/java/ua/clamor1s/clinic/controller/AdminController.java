@@ -52,7 +52,7 @@ public class AdminController {
     }
 
     @PostMapping("/update/{id}")
-    public ModelAndView updateClientById(@PathVariable int id, Admin admin) {
+    public ModelAndView updateAdminById(@PathVariable int id, Admin admin) {
         service.updateAdminById(id, admin);
         return new ModelAndView("redirect:/admins");
     }

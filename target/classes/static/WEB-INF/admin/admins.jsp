@@ -25,7 +25,7 @@
 
                 <td><a href="${pageContext.request.contextPath}/admins/${admin.adminId}">${admin.adminId}</a></td>
                 <td><a href="${pageContext.request.contextPath}/passports/${admin.seriesNumber}">${admin.seriesNumber}</a></td>
-                
+
                 <td>${admin.email}</td>
                 <td>${admin.password}</td>
                 <td>${admin.name}</td>

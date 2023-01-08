@@ -19,23 +19,23 @@
 
        <tr>
             <td><form:label path = "email">email</form:label></td>
-            <td><form:input path = "email" /></td>
+            <td><form:input path = "email" value = "${admin.email}" /></td>
        </tr>
        <tr>
             <td><form:label path = "password">password</form:label></td>
-            <td><form:input path = "password" /></td>
+            <td><form:input path = "password" value = "${admin.password}" /></td>
        </tr>
        <tr>
             <td><form:label path = "name">name</form:label></td>
-            <td><form:input path = "name" /></td>
+            <td><form:input path = "name" value = "${admin.name}" /></td>
        </tr>
        <tr>
             <td><form:label path = "telNum">telNum</form:label></td>
-            <td><form:input path = "telNum" /></td>
+            <td><form:input path = "telNum" value = "${admin.telNum}" /></td>
        </tr>
        <tr>
             <td><form:label path = "ITN">ITN</form:label></td>
-            <td><form:input path = "ITN" /></td>
+            <td><form:input path = "ITN" value = "${admin.ITN}" /></td>
        </tr>
 
 

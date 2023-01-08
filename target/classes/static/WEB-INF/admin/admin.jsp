@@ -9,12 +9,12 @@
 </head>
 <body>
 	<p>adminId: ${admin.adminId}</p>
-	<p>email: ${admin.seriesNumber}</p>
-	<p>name: ${admin.email}</p>
-	<p>sex: ${admin.password}</p>
-	<p>birth_date: ${admin.name}</p>
-	<p>tel_num: ${admin.telNum}</p>
-	<p>address: ${admin.ITN}</p>
+	<p>seriesNumber: ${admin.seriesNumber}</p>
+	<p>email: ${admin.email}</p>
+	<p>password: ${admin.password}</p>
+	<p>name: ${admin.name}</p>
+	<p>telNum: ${admin.telNum}</p>
+	<p>ITN: ${admin.ITN}</p>
 
     <a href="${pageContext.request.contextPath}/admins/edit/${admin.adminId}">Edit</a>
 
