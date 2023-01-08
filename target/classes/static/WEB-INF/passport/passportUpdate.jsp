@@ -28,7 +28,7 @@
 
 
        <td colspan="2">
-           <input type="submit" value="Save" />
+           <input type="submit" value="Update" />
        </td>
    </table>
 
