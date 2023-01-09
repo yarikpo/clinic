@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Favour {
 
-    private int favourId;
+    private Integer favourId;
     private String name;
-    private int cost;
+    private Integer cost;
 
 }

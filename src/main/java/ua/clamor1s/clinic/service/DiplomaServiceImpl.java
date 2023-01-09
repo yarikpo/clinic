@@ -17,11 +17,13 @@ public class DiplomaServiceImpl implements DiplomaService {
     private DiplomaDao dao;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Diploma> getAllDiplomas() {
         return dao.getAllDiplomas();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Diploma getDiplomaByCode(String code) {
         return dao.getDiplomaByCode(code);
     }
@@ -42,6 +44,7 @@ public class DiplomaServiceImpl implements DiplomaService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Integer> getAllowedDoctorIds() {
         return dao.getAllowedDoctorIds();
     }

@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Workplace {
 
-    private int workplaceId;
-    private int roomNumber;
-    private int placeNumber;
+    private Integer workplaceId;
+    private Integer roomNumber;
+    private Integer placeNumber;
 
 }
