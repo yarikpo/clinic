@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Owner {
 
-    private int ownerId;
+    private Integer ownerId;
     private String email;
     private String password;
 
