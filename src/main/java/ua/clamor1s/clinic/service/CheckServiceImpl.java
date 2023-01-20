@@ -59,7 +59,6 @@ public class CheckServiceImpl implements CheckService {
     }
 
     private void addRow(PdfPTable table, Check check) {
-        System.out.println(check);
         table.addCell(check.getAppointmentNumber().toString());
         table.addCell(check.getDoctorId().toString());
         table.addCell(check.getDoctorName());

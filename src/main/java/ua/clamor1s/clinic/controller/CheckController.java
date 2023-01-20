@@ -1,5 +1,6 @@
 package ua.clamor1s.clinic.controller;
 
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.clamor1s.clinic.service.CheckService;
+import ua.clamor1s.clinic.service.ReportService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,12 +23,36 @@ public class CheckController {
 
     @Autowired
     private CheckService service;
+    @Autowired
+    private ReportService reportService;
+
+    @GetMapping
+    public void getFullReport(HttpServletResponse res) {
+        String filename = "report.pdf";
+
+        byte[] contents = null;
+        try {
+            contents = reportService.getFullReport().toByteArray();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            res.getOutputStream().write(contents);
+            res.setContentType("application/pdf");
+            res.setHeader("Content-disposition", "attachment;filename=" + filename);
+            res.flushBuffer();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @GetMapping("/{id}")
     public void getCheckPdfById(@PathVariable int id, HttpServletRequest req, HttpServletResponse res) {
-//        res.setContentType("application/pdf");
         String filename = "check" + id + ".pdf";
-//        res.setHeader("Content-Disposition", "attachment;filename=" + filename);
+
         byte[] contents = null;
         try {
             contents = service.getCheckPdbById(id).toByteArray();
@@ -34,15 +60,7 @@ public class CheckController {
         catch (Exception e) {
             e.printStackTrace();
         }
-//
-//        HttpHeaders headers = new HttpHeaders();
-//        headers.setContentType(MediaType.parseMediaType("application/pdf"));
-//
-//        headers.setContentDispositionFormData(filename, filename);
-//        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-//        ResponseEntity<byte[]> respons = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-//
-//        return respons;
+
 
         try {
             res.getOutputStream().write(contents);
