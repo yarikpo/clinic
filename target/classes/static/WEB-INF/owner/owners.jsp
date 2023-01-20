@@ -28,5 +28,7 @@
 
         <a href="${pageContext.request.contextPath}/owners/create">Add</a>
 
+        <a href="${pageContext.request.contextPath}/home">Home</a>
+
     </body>
 </html>

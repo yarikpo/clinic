@@ -43,5 +43,7 @@
         <a href="${pageContext.request.contextPath}/statistics?statement=favoursByAllClients">favoursByAllClients</a>
         <br />
 
+        <a href="${pageContext.request.contextPath}/home">Home</a>
+
     </body>
 </html>

@@ -31,5 +31,7 @@
 
         <a href="${pageContext.request.contextPath}/diplomas/create">Add</a>
 
+        <a href="${pageContext.request.contextPath}/home">Home</a>
+
     </body>
 </html>

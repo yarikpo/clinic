@@ -30,5 +30,7 @@
 
         <a href="${pageContext.request.contextPath}/passports/create">Add</a>
 
+        <a href="${pageContext.request.contextPath}/home">Home</a>
+
     </body>
 </html>

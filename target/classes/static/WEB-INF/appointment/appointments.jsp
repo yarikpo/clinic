@@ -18,6 +18,7 @@
                 <td>favourId</td>
                 <td>workplaceId</td>
                 <td>date</td>
+                <td>check</td>
             </thead>
             <c:forEach var="appointment" items="${appointments}">
             <tr>
@@ -29,11 +30,14 @@
                 <td><a href="${pageContext.request.contextPath}/workplaces/${appointment.workplaceId}">${appointment.workplaceId}</a></td>
 
                 <td>${appointment.date}</td>
+                <td><a href="${pageContext.request.contextPath}/checks/${appointment.appointmentNumber}">check</a></td>
             </tr>
             </c:forEach>
         </table>
 
         <a href="${pageContext.request.contextPath}/appointments/create">Add</a>
+
+        <a href="${pageContext.request.contextPath}/home">Home</a>
 
     </body>
 </html>
