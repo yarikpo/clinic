@@ -22,6 +22,8 @@ public class AutomatizationServiceImpl implements AutomatizationService {
     private AutomatizationDao dao;
     @Autowired
     private DoctorDao doctorDao;
+    @Autowired
+    private EmailService emailService;
 
     @Override
     @Transactional(readOnly = true)
@@ -40,10 +42,20 @@ public class AutomatizationServiceImpl implements AutomatizationService {
     }
 
     @Async
-    @Scheduled(fixedDelay = 100000)
+    @Scheduled(fixedDelay = 1000 * 60 * 60 * 24)
     public void scheduleFixedRateTaskAsync() throws InterruptedException {
         System.out.println(
                 "Fixed rate task async - " + System.currentTimeMillis() / 1000);
+//        emailService.sendSimpleMessage("yaroslavpopovich04@gmail.com", "test subject", "some text");
+        List<Doctor> doctors = doctorDao.getAllDoctors();
+        for (Doctor doctor : doctors) {
+            List<Appointment> appointments = dao.getTodayAppointmentsByDoctorId(doctor.getDoctorId());
+            String message = "";
+            for (Appointment appointment : appointments) {
+                message+= appointment.toString() + "\n\n";
+            }
+            emailService.sendSimpleMessage(doctor.getEmail(), "Today appointments", message);
+        }
     }
 
 
